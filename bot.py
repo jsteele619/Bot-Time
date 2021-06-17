@@ -19,9 +19,7 @@ async def on_message(message):
         return 
 
     if message.content == "python":
-        response = "random python quote"
+        response = "random quote"
         await message.channel.send(response)
-
-
 
 client.run(TOKEN)
