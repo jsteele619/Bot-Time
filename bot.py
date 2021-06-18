@@ -13,15 +13,16 @@ def random_function():
 
 @client.event
 async def on_ready():
-    pass
+    print('hello world')
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return 
 
-    if message.content == "python":
+    if 'python' in message.content:
         response = random_function()
-        await message.channel.send(response)
+        await message.channel.send(f"Your random python function --> {response}" )
 
 client.run(TOKEN)
+
