@@ -1,17 +1,19 @@
 import os
 from dotenv import load_dotenv
+from list_time import python_functions
 import discord
 import random
 
 load_dotenv()
-
 TOKEN = os.getenv('DISCORD_TOKEN')
-
 client = discord.Client()
+
+def random_function():
+    return random.choice(python_functions)
 
 @client.event
 async def on_ready():
-    print('hello world')
+    pass
 
 @client.event
 async def on_message(message):
@@ -19,7 +21,7 @@ async def on_message(message):
         return 
 
     if message.content == "python":
-        response = "random quote"
-        await message.channel.send('Hello World!')
+        response = random_function()
+        await message.channel.send(response)
 
 client.run(TOKEN)
